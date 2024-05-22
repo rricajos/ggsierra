@@ -10,6 +10,9 @@
 
   <title>Giuseppe Sierra</title>
   <style>
+    #embed-widget-container {
+      border-radius: 0;
+    }
     h1 {
       text-shadow: 0px 0px 10px black;
       padding: 0 1em;
@@ -26,7 +29,7 @@
       background-image: url("https://rricajos.github.io/ggsierra/assets/adan-DVCaBawg.jpg");
       background-size: cover;
       background-position: center;
-;
+      ;
       position: relative;
     }
 
@@ -47,11 +50,13 @@
       margin: 0 auto;
     }
   </style>
-  <script type="module" crossorigin src="https://rricajos.github.io/ggsierra/assets/index-D_H-2PvL.js"></script>
-  <link rel="stylesheet" crossorigin href="https://rricajos.github.io/ggsierra/assets/index-BuHXfD3I.css">
+  <script type="module" crossorigin src="https://rricajos.github.io/ggsierra/assets/index-j8qaDcXL.js"></script>
+  <link rel="stylesheet" crossorigin href="https://rricajos.github.io/ggsierra/assets/index-BEWr8WYy.css">
 </head>
 
 <body>
+
+
   <header>
     <div class="header-cont">
 
@@ -59,6 +64,26 @@
     </div>
   </header>
   <div id="app"></div>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+  <script>
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+      const element = document.getElementById('embed-iframe');
+      const options = {
+        width: '100%',
+        allowTransparency: 'true',
+        uri: 'spotify:episode:7makk4oTQel546B0PZlDM5'
+      };
+      const callback = (EmbedController) => {
+        document.querySelectorAll(".episode").forEach((episode) => {
+          episode.addEventListener("click", () => {
+            EmbedController.loadUri(episode.dataset.spotifyId)
+          });
+        });
+      };
+      IFrameAPI.createController(element, options, callback);
+      
+    };
+  </script>
 </body>
 
 </html>
